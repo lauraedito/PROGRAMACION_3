@@ -1,0 +1,166 @@
+package ventana;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+
+public class Ventana extends JFrame{
+	public Ventana() {
+		this.setSize(1000, 700);
+		setTitle("Ingresar");
+		setResizable(true);
+		setLocationRelativeTo(null); 
+		setMinimumSize(new Dimension (200,200));
+		setLayout(null);
+		crear();
+		
+	}
+	
+	void crear () {
+		JPanel panel = new JPanel();
+		
+		panel.setSize(this.getWidth()/2,this.getHeight());
+		panel.setLocation(0,0);
+		panel.setLayout(null);
+		panel.setBackground(Color.pink);
+		this.getContentPane().add(panel);
+		
+		
+		JLabel etiqueta = new JLabel("BIENVENIDO");
+		etiqueta.setBounds(230, 10, this.getWidth(), 30);
+		/*etiqueta.setFont(new Font("Agency FB", Font.BOLD,20));
+		etiqueta.setBackground(Color.white);
+		etiqueta.setLocation(150,10);
+		etiqueta.setSize(220,40);
+		etiqueta.setOpaque(true);
+		*/
+		
+		panel.add(etiqueta);
+		
+		JLabel etiqueta2 = new JLabel("Ingrese su usuario: ", SwingConstants.CENTER);
+		etiqueta2.setBounds(10, 55, 120, 30);
+		etiqueta2.setOpaque(true);
+		etiqueta2.setBackground(Color.white);
+		panel.add(etiqueta2);
+		
+		JTextField cajaTexto = new JTextField();
+		cajaTexto.setBounds(10, 100, 170, 35);
+		panel.add(cajaTexto);
+		
+		
+		JLabel etiqueta3 = new JLabel("Contraseña: ", SwingConstants.CENTER);
+		etiqueta3.setBounds(10, 155, 90, 30);
+		etiqueta3.setOpaque(true);
+		etiqueta3.setBackground(Color.white);
+		panel.add(etiqueta3);
+		
+		JPasswordField contrasena = new JPasswordField();
+		contrasena.setBounds(10, 200, 170, 35);
+		panel.add(contrasena);
+		
+		JButton boton = new JButton("Acceder");
+		boton.setBounds(10, 250, 120, 30);
+		panel.add(boton);
+		
+		//////
+		JPanel registro = new JPanel();
+		
+		registro.setSize(this.getWidth()/2,this.getHeight());
+		registro.setLocation(this.getWidth()/2,0);
+		registro.setLayout(null);
+		registro.setBackground(Color.lightGray);
+		//this.getContentPane().add(registro);
+		this.add(registro);
+		//this.repaint();
+		
+		JLabel etiquetaR = new JLabel("REGISTRO", SwingConstants.CENTER);
+		etiquetaR.setBounds(0, 10, registro.getWidth(),30);
+		registro.add(etiquetaR);
+		
+		JLabel nombre = new JLabel("Nombre completo: ", SwingConstants.CENTER);
+		nombre.setBounds(10, 55, 120, 30);
+		nombre.setOpaque(true);
+		nombre.setBackground(Color.white);
+		registro.add(nombre);
+		
+		JTextField cajaNombre = new JTextField();
+		cajaNombre.setBounds(10, 100, 300, 35);
+		registro.add(cajaNombre);
+		
+		
+		JCheckBox gusto1 = new JCheckBox ("estudiante");
+		gusto1.setBounds(10, 150, 300, 35);
+		registro.add(gusto1);
+		
+		JCheckBox gusto2 = new JCheckBox ("con empleo");
+		gusto2.setBounds(10, 195, 300, 35);
+		registro.add(gusto2);
+		
+		JRadioButton type = new JRadioButton("mujer");
+		type.setBounds(10, 240, 300, 35);
+		registro.add(type);
+		
+		JRadioButton type1 = new JRadioButton("hombre");
+		type1.setBounds(10, 285, 300, 35);
+		registro.add(type1);
+		
+		ButtonGroup grupo = new ButtonGroup();
+		grupo.add(type);
+		grupo.add(type1);
+		//
+		JLabel elejirLabel = new JLabel("Escriba sobre usted :");
+		elejirLabel.setBounds(10, 330, 300,30);
+		registro.add(elejirLabel);
+		
+		JTextArea tex = new JTextArea(10,10);
+		tex.setBounds(10,360,350,100); 
+		registro.add(tex);
+		
+		//
+		JLabel etiquetaColonias = new JLabel("Elija su colonia: ");
+		etiquetaColonias.setBounds(10, 460, 350, 30);
+		etiquetaColonias.setOpaque(false);
+		etiquetaColonias.setBackground(Color.white);
+		registro.add(etiquetaColonias);
+		
+		
+		
+		String opciones []= {"Loma linda", "Calafia","Diana Laura"};
+		JComboBox btnOp = new JComboBox(opciones);
+		btnOp.setBounds(10, 490, 170, 30);
+		registro.add(btnOp);
+		
+		
+	}
+	
+	
+
+}
+
+package ventana;
+
+public class Main {
+	public static void main (String[] args) {
+		
+		Ventana ventana= new Ventana();
+		ventana.setVisible(true);
+		
+	}
+
+}
